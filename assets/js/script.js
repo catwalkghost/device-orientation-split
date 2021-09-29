@@ -10,14 +10,24 @@ if (typeof DeviceOrientationEvent['requestPermission'] === 'function') {
             }
         })
         .catch(console.error);
+} else {
+    if (window.DeviceOrientationEvent) {
+        window.addEventListener('deviceorientation', updateBackgroundGradient);
+    }
 }
-// if (window.DeviceOrientationEvent) {
-//     window.addEventListener('deviceorientation', updateBackgroundGradient);
-// }
+
+
+DeviceMotionEvent.requestPermission().then(response => {
+    if (response === 'granted') {
+        console.log("accelerometer permission granted");
+        // Do stuff here
+    }
+});
+
 
 // update the background gradient
 function updateBackgroundGradient(evt) {
-    // Get gamma value and update the position css custom property to match the gamma property of the device orientation event (gamma is titlting left and right)
+    // Get gamma value and update the position css custom property to match the gamma property of the device orientation event (gamma is tilting left and right)
     // - I added 50 to account for the offset.
     page.style.setProperty('--position', -evt.gamma + 50 +'%');
     square1.style.setProperty('--position', -evt.gamma + 50 +'%');
