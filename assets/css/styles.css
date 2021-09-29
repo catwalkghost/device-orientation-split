@@ -1,0 +1,40 @@
+body {
+    font-family: "Playfair Display SC", serif;
+    letter-spacing: 0.062rem;
+}
+
+h1 {
+    margin: 0;
+}
+
+#page {
+    --position: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 20vw;
+    background: linear-gradient(
+            to right,
+            #000 0%,
+            #000 var(--position),
+            #fff var(--position),
+            #fff 100%
+    );
+}
+
+#square1 {
+    --position: 50%;
+    width: 100%;
+    text-align: center;
+    background: linear-gradient(
+            to right,
+            #fff 0%,
+            #fff var(--position),
+            #000 var(--position),
+            #000 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
