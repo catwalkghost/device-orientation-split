@@ -2,9 +2,18 @@ const square1 = document.getElementById('square1');
 const page = document.getElementById('page');
 
 // Check I have access to the device orientation event
-if (window.DeviceOrientationEvent) {
-    window.addEventListener('deviceorientation', updateBackgroundGradient);
+if (typeof DeviceOrientationEvent['requestPermission'] === 'function') {
+    DeviceOrientationEvent['requestPermission']()
+        .then(permissionState => {
+            if (permissionState === 'granted') {
+                window.addEventListener('deviceorientation', updateBackgroundGradient);
+            }
+        })
+        .catch(console.error);
 }
+// if (window.DeviceOrientationEvent) {
+//     window.addEventListener('deviceorientation', updateBackgroundGradient);
+// }
 
 // update the background gradient
 function updateBackgroundGradient(evt) {
@@ -14,4 +23,6 @@ function updateBackgroundGradient(evt) {
     square1.style.setProperty('--position', -evt.gamma + 50 +'%');
 
 }
+
+
 
