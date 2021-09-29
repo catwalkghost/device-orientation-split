@@ -16,13 +16,16 @@ const page = document.getElementById('page');
 //     }
 // }
 
-DeviceMotionEvent.requestPermission()
-    .then(response => {
-        if (response === 'granted') {
-            window.addEventListener('deviceorientation', updateBackgroundGradient);
-        }
-    })
-    .catch(console.error);
+function getAccelerometer() {
+    DeviceMotionEvent.requestPermission()
+        .then(response => {
+            if (response === 'granted') {
+                window.addEventListener('deviceorientation', updateBackgroundGradient);
+            }
+        })
+        .catch(console.error);
+}
+
 
 
 
