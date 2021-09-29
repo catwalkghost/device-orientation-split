@@ -18,7 +18,7 @@ const page = document.getElementById('page');
 
 if (window.DeviceMotionEvent && typeof window.DeviceMotionEvent.requestPermission === 'function') {
     const banner = document.createElement('div')
-    banner.innerHTML = `<div style="z-index: 1; position: absolute; width: 100%; background-color:#000; color: #fff"><p style="padding: 10px">Click here to enable DeviceMotion</p></div>`
+    banner.innerHTML = `<div style="z-index: 1; position: absolute; width: 100%; height: 100vh; background-color:#000; color: #fff"><p style="padding: 10px">Click here to enable DeviceMotion</p></div>`
     banner.onclick = getAccelerometer // You NEED to bind the function into a onClick event. An artificial 'onClick' will NOT work.
     document.querySelector('body').appendChild(banner)
 }
