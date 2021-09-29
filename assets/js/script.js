@@ -24,6 +24,7 @@ if (window.DeviceMotionEvent && typeof window.DeviceMotionEvent.requestPermissio
 }
 
 function getAccelerometer() {
+    document.getElementById("banner").classList.add("display-none")
     window.DeviceMotionEvent.requestPermission()
         .then(response => {
             if (response === 'granted') {

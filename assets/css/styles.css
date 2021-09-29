@@ -52,3 +52,7 @@ h1 {
     color: #fff;
     padding: 1rem;
 }
+
+.display-none {
+    display: none;
+}
