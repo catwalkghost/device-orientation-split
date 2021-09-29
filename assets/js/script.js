@@ -6,7 +6,7 @@ const bannerInnerHtml = `<div id="banner">${bannerText}</div>`
 if (window.DeviceMotionEvent && typeof window.DeviceMotionEvent.requestPermission === 'function') {
     const banner = document.createElement('div');
     banner.innerHTML = bannerInnerHtml;
-    // This needs to bind the function to a onClick event. An artificial 'onClick' will not work.
+    // The function needs to be bound to a onClick event. An artificial 'onClick' will not work.
     banner.onclick = getAccelerometer;
     document.querySelector('body').appendChild(banner);
 }
