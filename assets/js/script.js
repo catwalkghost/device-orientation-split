@@ -19,14 +19,13 @@ const page = document.getElementById('page');
 if (window.DeviceMotionEvent && typeof window.DeviceMotionEvent.requestPermission === 'function') {
     const banner = document.createElement('div')
     banner.innerHTML = `<div id="banner">Click here to enable DeviceMotion</div>`
-    banner.onclick = getAccelerometer.then(res => {
-        document.getElementById("banner").style.display = "none";
-
-    }) // You NEED to bind the function into a onClick event. An artificial 'onClick' will NOT work.
+    banner.onclick = getAccelerometer // You NEED to bind the function into a onClick event. An artificial 'onClick' will NOT work.
     document.querySelector('body').appendChild(banner)
 }
 
 function getAccelerometer() {
+    document.getElementById("banner").style.display = "none";
+
     window.DeviceMotionEvent.requestPermission()
         .then(response => {
             if (response === 'granted') {
