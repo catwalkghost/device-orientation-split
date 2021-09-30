@@ -1,4 +1,7 @@
 # DeviceMotion Demo (iOS)
+
+![DeviceMotion Demo](https://github.com/catwalkghost/device-orientation-split/blob/main/assets/img/demo.gif?raw=true)
+
 A demo for using DeviceMotion (Accelerometer) on iOS devices. 
 
 Works in Safari on iOS 13+.
